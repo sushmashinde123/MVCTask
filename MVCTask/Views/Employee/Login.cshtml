@@ -1,0 +1,39 @@
+﻿@model MVCTask.Models.tblemployee_details
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <div> 
+        <h2>Login Here </h2>
+        @using(Html.BeginForm())
+        {
+            <table>
+                <tr>
+                    <td>Email Address :</td>
+                    <td>@Html.TextBoxFor(e=>e.email_Address)</td>
+                </tr>
+                <tr>
+                    <td>Password :</td>
+                    <td>@Html.PasswordFor(e => e.password)</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Login" /></td>
+                    <td><input type="reset" value="Reset" /></td>
+                </tr>
+            </table>
+        }
+        <h2 style="color:red">@ViewBag.msg</h2>
+
+        @Html.ActionLink("No Account? Register Here","Register")
+    </div>
+</body>
+</html>

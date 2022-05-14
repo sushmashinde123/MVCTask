@@ -1,0 +1,61 @@
+﻿@model MVCTask.Models.EmployeeModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <h2>Register Here</h2>
+    <div> 
+        @using(Html.BeginForm())
+        {
+            <table>
+                <tr>
+                    <td>First Name :</td>
+                    <td>@Html.TextBoxFor(e=>e.first_name)</td>
+                </tr>
+                <tr>
+                    <td>Last Name :</td>
+                    <td>@Html.TextBoxFor(e => e.last_name)</td>
+                </tr>
+                <tr>
+                    <td>Birth Date:</td>
+                    <td>@Html.TextBoxFor(e => e.birth_date, new { @type="date"})</td>
+                </tr>
+                <tr>
+                    <td>Email Address :</td>
+                    <td>@Html.TextBoxFor(e => e.email_Address, new { @type="email"})</td>
+                </tr>
+                
+                <tr>
+                    <td>Password</td>
+                    <td>@Html.PasswordFor(e => e.password)</td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td>@Html.PasswordFor(e => e.confirm_password)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Register" />
+                    </td>
+                    <td><input type="reset" value="Reset" /></td>
+
+                </tr>
+
+            </table>
+        }
+        <h4>@ViewBag.msg</h4>
+<br />
+        @Html.ActionLink("Already Account? Login Here", "Login")
+
+
+    </div>
+</body>
+</html>

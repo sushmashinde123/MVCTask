@@ -1,0 +1,29 @@
+﻿@model MVCTask.Models.tblemployee_details
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Dashboard</title>
+</head>
+<body>
+    <div> 
+        @Html.ActionLink("Log Out","Logout")
+        <h2>Welcome, @Session["employee_name"].ToString() </h2>
+        @{
+            DateTime birth_Date = Model.birth_date.Value;
+            DateTime todays_date = DateTime.Now;
+
+            TimeSpan t = todays_date.Subtract(birth_Date);
+            int year = (int)Math.Round(t.TotalDays/365);
+            //int months =(int) (t.TotalDays % 365);
+            
+        }
+        <h4>Your Age is @year years</h4>
+    </div>
+</body>
+</html>
